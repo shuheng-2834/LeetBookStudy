@@ -15,6 +15,7 @@ import java.util.*;
  * 你需要输出替换之后的句子。
  */
 public class Main {
+
     public static void main(String[] args) {
         SolutionFun2 solution = new SolutionFun2();
         String sentence = "aadsfasf absbs bbab cadsfafs";

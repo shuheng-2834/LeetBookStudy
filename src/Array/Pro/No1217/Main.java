@@ -11,12 +11,12 @@ package Array.Pro.No1217;
 public class Main {
 
     public static void main(String[] args) {
-        int i = new SolutionFun1().minCostToMoveChips(new int[]{1,2,3});
+        int i = new SolutionFun().minCostToMoveChips(new int[]{1,2,3});
         System.out.println(i);
     }
 }
 
-class SolutionFun1 {
+class SolutionFun {
     public int minCostToMoveChips(int[] position) {
         int odd = 0,ji = 0;
         for (int j : position) {

@@ -8,12 +8,10 @@ import java.util.List;
  * @ClassName Main
  * @date 2022/7/11 14:34
  * @Version 1.0
- *
- *
  */
 public class Main {
     public static void main(String[] args) {
-        new Solution().romanToInt("MCMXCIV");
+        System.out.println(new Solution().romanToInt("MCMXCIV"));
     }
 }
 
@@ -35,55 +33,17 @@ class Solution {
             if (i + 1 >= stringList.size()) {
                 count += hsh.get(stringList.get(i));
             } else {
-                String flag = s.substring(i, i + 1);
                 // 判断是否为‘I’,'X'或‘C’情况
-                if ("I".equals(flag)) {
-                    switch (stringList.get(i + 1)) {
-                        case "V":
-                            count += 4;
-                            i += 1;
-                            continue;
-                        case "X":
-                            count += 9;
-                            i += 1;
-                            continue;
-                        default:
-                            count += 1;
-                            continue;
-                    }
+                String left = s.substring(i, i + 1);
+                String right = s.substring(i + 1, i + 2);
+                if (hsh.get(left) < hsh.get(right)) {
+                    int j = (hsh.get(right) - hsh.get(left));
+                    count += j;
+                    i += 1;
+                } else {
+                    // 如果都不是，则直接将其转换为阿拉伯数字
+                    count += hsh.get(left);
                 }
-                if ("X".equals(flag)) {
-                    switch (stringList.get(i + 1)) {
-                        case "L":
-                            count += 40;
-                            i += 1;
-                            continue;
-                        case "C":
-                            count += 90;
-                            i += 1;
-                            continue;
-                        default:
-                            count += 10;
-                            continue;
-                    }
-                }
-                if ("C".equals(flag)) {
-                    switch (stringList.get(i + 1)) {
-                        case "D":
-                            count += 400;
-                            i += 1;
-                            continue;
-                        case "M":
-                            count += 900;
-                            i += 1;
-                            continue;
-                        default:
-                            count += 100;
-                            continue;
-                    }
-                }
-                // 如果都不是，则直接将其转换为阿拉伯数字
-                count += hsh.get(flag);
             }
         }
         return count;

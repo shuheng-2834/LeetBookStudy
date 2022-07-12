@@ -50,4 +50,24 @@ class Solution {
         }
         return count;
     }
+
+    public int oddCellsFun2(int m, int n, int[][] indices) {
+        int count = 0;
+        int[] row = new int[m];
+        int[] col = new int[n];
+
+        for (int[] index : indices) {
+            row[index[0]]++;
+            col[index[1]]++;
+        }
+
+        for (int i : row) {
+            for (int i1 : col) {
+                if (((i + i1) % 2) == 1){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 }

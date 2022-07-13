@@ -15,34 +15,15 @@ public class Main {
 
 class Solution {
     public String longestCommonPrefix(String[] strs) {
-        if (strs.length == 1){
-            return strs[0];
-        }
+        if(strs.length == 0) return "";
         // 当前公共前缀
-        String flag = "";
-        String flag1 = "";
-        // 当前字符串
-        String str = strs[0];
-        // 下一个字符串
-        String next = "";
-        for (int i = 0; i < strs.length - 1; i++) {
-            if (i == 0) {
-                str = strs[i];
-            } else {
-                str = flag1;
-            }
-            for (int j = 0; j <= str.length(); j++) {
-                flag = str.substring(0, j);
-                next = strs[i + 1];
-                System.out.println(flag);
-                if (next.length() >= j) {
-                    if (flag.equals(strs[i + 1].substring(0, j))) {
-                        flag1 = flag;
-                        System.out.println("当前前缀：" + flag1);
-                    }
-                }
+        String flag = strs[0];
+        for (String str : strs) {
+            while (!str.startsWith(flag)){
+                if (flag.length() == 0) return "";
+                flag = flag.substring(0,flag.length()-1);
             }
         }
-        return flag1;
+        return flag;
     }
 }

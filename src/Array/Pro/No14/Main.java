@@ -8,20 +8,27 @@ package Array.Pro.No14;
  */
 public class Main {
     public static void main(String[] args) {
-        String[] strs = new String[]{"flower", "flower","flower"};
+        String[] strs = new String[]{"flower", "flow", "flight"};
         System.out.println("结果：" + new Solution().longestCommonPrefix(strs));
     }
 }
 
 class Solution {
     public String longestCommonPrefix(String[] strs) {
-        if(strs.length == 0) return "";
+        if (strs.length == 0) return "";
         // 当前公共前缀
-        String flag = strs[0];
+        int minIndex = 0;
+        for (int i = 1; i < strs.length; i++) {
+            if (strs[i].length() <= strs[i - 1].length()) {
+                minIndex = i;
+            }
+        }
+        System.out.println(strs[minIndex]);
+        String flag = strs[minIndex];
         for (String str : strs) {
-            while (!str.startsWith(flag)){
+            while (!str.startsWith(flag)) {
                 if (flag.length() == 0) return "";
-                flag = flag.substring(0,flag.length()-1);
+                flag = flag.substring(0, flag.length() - 1);
             }
         }
         return flag;

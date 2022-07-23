@@ -20,4 +20,4 @@ HAVING
 ##### 2.聚合函数（avg、sum、max、min、count），不能作为条件放在where之后，但可以放在having之后
 
 ### SUM()
-#### `SUM() `函数用来求和
+#### `SUM() `函数用来求和，与`count()`有区别

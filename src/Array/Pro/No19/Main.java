@@ -5,6 +5,8 @@ package Array.Pro.No19;
  * @ClassName Main
  * @date 2022/7/24 21:31
  * @Version 1.0
+ *
+ * 19. 删除链表的倒数第 N 个结点
  */
 public class Main {
     public static void main(String[] args) {
